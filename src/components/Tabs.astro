@@ -1,0 +1,52 @@
+
+<div class="max-w-3xl mx-auto w-full mt-10">
+  <div class="flex gap-2 mb-6" id="tabs-bar">
+    <button type="button" class="px-4 py-2 rounded-t-lg font-semibold transition-colors bg-accent text-primary" data-tab="skills">Skills</button>
+    <button type="button" class="px-4 py-2 rounded-t-lg font-semibold transition-colors bg-secondary text-white hover:bg-accent/30" data-tab="estudios">Estudios</button>
+  </div>
+  <div class="bg-secondary/80 p-6 rounded-b-xl shadow-lg" id="tab-content">
+    <div id="skills-content">
+      <ul class='space-y-2 text-left'>
+        <li>• <b>Front-End:</b> Desarrollo de interfaces dinámicas y responsivas utilizando HTML, CSS, JavaScript, jQuery, Ajax, Bootstrap, Vue.js, Astro, NextJs y React.js.</li>
+        <li>• <b>Back-End:</b> Dominio avanzado en frameworks PHP como Yii y Laravel, con sólida experiencia en el diseño y desarrollo de APIs RESTful, integración de servicios externos y optimización de rendimiento. Experiencia en desarrollo con Python para tareas de automatización y procesamiento de datos.</li>
+        <li>• <b>Node.js, Express y MongoDb:</b> Conocimientos básicos en Node.js, Express y MongoDb.</li>
+        <li>• <b>Bases de datos:</b> Experiencia sólida en gestores de base de datos como MySQL, SQL Server y Oracle.</li>
+        <li>• <b>Control de versiones GIT:</b> Habilidad avanzada en el uso de GIT, aplicando el modelo de ramificación Gitflow.</li>
+        <li>• <b>Integración de servicios:</b> Experiencia en la integración de servicios REST y SOAP, así como en la integración de Google y Azure.</li>
+        <li>• <b>AWS:</b> Plataforma personal en amazon usando EC2 y Elastic Load Balancing</li>
+        <li>• <b>Cloudflare:</b> Registro de dominios y configuración de correos, certificados SSL.</li>
+        <li>• <b>Desarrollo de sitios web:</b> Experiencia en el desarrollo de sitios con gestores de contenidos como Joomla y Wordpress.</li>
+        <li>• <b>Herramientas de Adobe:</b> Dominio en herramientas de diseño de Adobe, incluyendo Photoshop, Adobe Flash e Illustrator.</li>
+        <li>• <b>Metodología Scrum:</b> Fundamentos sólidos en la metodología de desarrollo de proyectos Scrum.</li>
+      </ul>
+    </div>
+    <div id="estudios-content" style="display:none;">
+      <ul class='space-y-2 text-left'>
+        <li><b>Título Profesional:</b> Ingeniería (e) Computación e Informática, Universidad del Bío-Bío</li>
+        <li><b>Curso Ingles Básico I:</b> Tronwel</li>
+        <li><b>Elementary I:</b> CFT Instituto Chileno Británico de Concepción / Situación actual: Estudiando</li>
+        <li><b>ScrumStudy:</b> Certificado Internacional Scrum Fundamentals</li>
+        <li><b>Curso Herramientas de programación en PYTHON para procesamiento de datos:</b> Pontificia Universidad Católica de Chile</li>
+        <li><b>Diplomado en Inteligencia Artificial:</b> Universidad Autónoma de Chile (en curso)</li>
+      </ul>
+    </div>
+    
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const tabs = document.querySelectorAll('#tabs-bar button');
+    const contents = {
+      skills: document.getElementById('skills-content'),
+      estudios: document.getElementById('estudios-content'),
+    };
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function () {
+        tabs.forEach(t => t.classList.remove('bg-accent', 'text-primary'));
+        tab.classList.add('bg-accent', 'text-primary');
+        Object.values(contents).forEach(c => c.style.display = 'none');
+        contents[tab.dataset.tab].style.display = '';
+      });
+    });
+  });
+</script>

@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  alorens:
+    container_name: personal-docker
+    restart: always
+    build:      
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "4321:4321"
+    volumes:
+      - ..:/app
+      - /app/node_modules
+      - /app/dist
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=4321   

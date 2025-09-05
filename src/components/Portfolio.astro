@@ -1,0 +1,63 @@
+---
+import MiPortafolio from "./MiPortafolio.astro";
+
+const portfolioItems = [
+  {
+    title: 'Documentos legales con firma avanzada',
+    description: 'Plataforma de redacción de documentos legales y firma avanzada',
+    image: '/img/firmalex2.png',
+    front: 'Laravel Blade',
+    front2: 'Vue.js',
+    back: 'Laravel',
+    type: 'web app'
+  },
+  {
+    title: 'Fiscalía Regional del Bío Bío',
+    description: 'Api para generar documentos digitales durante un proceso nocturno.',
+    image: '/img/fiscalia.png',
+    back: 'php',
+    type: 'api'
+  },
+  {
+    title: 'enquiebra.cl',
+    description: 'Landing page para la gestión de quiebras',
+    image: '/img/enquiebra.png',
+    front: 'Laravel Blade',
+    front2: 'Vue.js',
+    back: 'Laravel',
+    type: 'landing page'
+  },
+  {
+    title: 'holmanortiz.cl',
+    description: 'Platorma Corredora de Propiedades',
+    image: 'https://via.placeholder.com/400x300/1a1a1a/00ff9d?text=E-learning',
+    front: 'Javascript',
+    front2: 'Bootstrap',
+    back: 'Yii 1.1',
+    type: 'web app'
+  },
+  {
+    title: 'tycautomotriz.cl',
+    description: 'Aplicación de gestión inmobiliaria',
+    image: 'https://via.placeholder.com/400x300/1a1a1a/00ff9d?text=Real+Estate',
+    front: 'Javascript',
+    front2: 'Bootstrap',
+    back: 'Html5',
+    type: 'landing page',
+  },
+  {
+    title: 'transportesbulnes.cl',
+    description: 'Plataforma web de gestión de equipos',
+    image: '/img/tbl.png',
+    front: 'Laravel Blade',
+    front2: 'Vue.js',
+    back: 'Laravel',
+    type: 'web app',
+  }
+];
+
+---
+
+<div>
+     <MiPortafolio items={portfolioItems} />
+</div>

@@ -1,0 +1,57 @@
+---
+// filepath: c:\Users\Alejandro Lorens\Desktop\repos\astro\src\components\MiPortafolio.astro
+const { items = [] } = Astro.props;
+---
+<div class="grid grid-cols-3 gap-4 md:gap-6">
+  {items.length > 0 && (
+    items.slice(0, 3).map((item) => (
+      <div class="relative group rounded-xl overflow-hidden shadow-lg h-48">
+        <img src={item.image} alt={item.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <div class="text-white">
+            <div class="font-bold text-base">{item.title}</div>
+            <div class="text-xs">{item.description}</div>
+          </div>
+        </div>
+      </div>
+    ))
+  )}
+
+  {items[3] && (
+    <div class="col-span-2 row-span-1 relative group rounded-xl overflow-hidden shadow-lg h-48 md:h-64">
+      <img src={items[3].image} alt={items[3].title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+      <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+        <div class="text-white">
+          <div class="font-bold text-base">{items[3].title}</div>
+          <div class="text-xs">{items[3].description}</div>
+        </div>
+      </div>
+    </div>
+  )}
+
+  {items[4] && (
+    <div class="relative group rounded-xl overflow-hidden shadow-lg h-48">
+      <img src={items[4].image} alt={items[4].title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+      <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+        <div class="text-white">
+          <div class="font-bold text-base">{items[4].title}</div>
+          <div class="text-xs">{items[4].description}</div>
+        </div>
+      </div>
+    </div>
+  )}
+
+  {items.length > 5 && (
+    items.slice(5).map((item) => (
+      <div class="relative group rounded-xl overflow-hidden shadow-lg h-48">
+        <img src={item.image} alt={item.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+          <div class="text-white">
+            <div class="font-bold text-base">{item.title}</div>
+            <div class="text-xs">{item.description}</div>
+          </div>
+        </div>
+      </div>
+    ))
+  )}
+</div>

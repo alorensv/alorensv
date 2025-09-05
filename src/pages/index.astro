@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MatrixRain from '../components/MatrixRain.astro';
+import Navigation from '../components/Navigation.astro';
+import Acercademi from '../components/Acercademi.astro';
+import Contacto from '../components/Contacto.astro';
+
+---
+
+<Layout title="Alejandro Lorens">
+  <nav class="fixed top-0 w-full bg-primary/95 backdrop-blur-sm z-50 px-4 py-4 shadow-lg">
+    <div class="container mx-auto">
+      <div class="flex justify-center gap-6 md:gap-8">
+  <a href="#inicio" data-section="inicio" class="nav-link text-white hover:text-accent transition-colors text-sm md:text-base font-medium">Inicio</a>
+  <a href="#sobremi" data-section="sobremi" class="nav-link text-white hover:text-accent transition-colors text-sm md:text-base font-medium">Acerca de mí</a>
+  <a href="/mi-portafolio" target="_blank" class="nav-link text-white hover:text-accent transition-colors text-sm md:text-base font-medium">Portafolio</a>
+  <a href="#contacto" data-section="contacto" class="nav-link text-white hover:text-accent transition-colors text-sm md:text-base font-medium">Contacto</a>
+  
+      </div>
+    </div>
+  </nav>
+  
+  <main class="pt-10">
+    <div class="relative min-h-[calc(100vh-2.5rem)]">
+      
+      
+      <!-- Inicio Section -->
+      <section id="inicio" class="absolute inset-0 transition-all duration-500 ease-in-out transform overflow-y-auto min-h-screen pb-8">
+        <MatrixRain />
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/20 to-primary/95 z-1"></div>
+        <div class="container mx-auto px-4 py-8 md:py-0 md:h-full flex items-center">
+          <div class="grid md:grid-cols-2 gap-8 items-center relative z-10 w-full">
+            <div class="text-center md:text-left">
+              
+              <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 typewriter-text">
+                <span id="typed-text"></span><span class="cursor">|</span>
+              </h3>
+
+              <!-- <div class="flex justify-center md:justify-start mb-6 md:mb-8">
+                <img src="/img/LOGO.png" alt="Logo" class="h-20 md:h-32" />
+              </div> -->
+
+              <script>
+                const messages = [
+                  '¡Hola!, soy Alejandro Lorens',
+                  'Programador con 10 años de experiencia.',
+                  '¿Necesitas una página web?',
+                  '¿Plataforma? ¿App?',
+                  '¡Hablemos!'
+                ];
+                
+                function sleep(ms) {
+                  return new Promise(resolve => setTimeout(resolve, ms));
+                }
+
+                async function typeWriter(text, element, isNewLine = false) {
+                  if (isNewLine) {
+                    element.innerHTML += '<br>';
+                  }
+                  for (let i = 0; i < text.length; i++) {
+                    const char = text.charAt(i);
+                    if (char === ' ') {
+                      element.innerHTML += '&nbsp;';
+                    } else {
+                      element.innerHTML += char;
+                    }
+                    await sleep(50); // Velocidad de escritura más rápida
+                  }
+                }
+
+                async function animateText() {
+                  const element = document.getElementById('typed-text');
+                  for (let i = 0; i < messages.length; i++) {
+                    await typeWriter(messages[i], element, i > 0);
+                    await sleep(500); // Pequeña pausa entre líneas
+                  }
+                }
+
+                // Iniciar la animación cuando el DOM esté listo
+                document.addEventListener('DOMContentLoaded', animateText);
+              </script>
+            </div>
+            <div class="flex justify-center mt-4 md:mt-0">
+              <img
+                src="/img/LOGO.png"
+                alt="Lorens"
+              />
+            </div>
+
+            <!-- <div class="flex justify-center mt-4 md:mt-0">
+              <img
+                src="/img/LOGO.png"
+                alt="Avatar"
+                class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-accent"
+              />
+            </div> -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- sobremi Section -->
+      <section id="sobremi" class="absolute inset-0 transition-all duration-500 ease-in-out transform translate-x-full opacity-0 hidden overflow-y-auto min-h-screen pb-8">
+        <Acercademi />
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contacto" class="absolute inset-0 transition-all duration-500 ease-in-out transform translate-x-full opacity-0 hidden overflow-y-auto min-h-screen pb-8 bg-white">
+        <Contacto />
+      </section>
+    </div>
+  </main>
+  <Navigation />
+</Layout>
+
+<style>
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    animation: blink 0.75s step-end infinite;
+    color: #00ff9d;
+  }
+
+  @keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .typewriter-text {
+    color: white;
+    line-height: 1.5;
+  }
+
+  #typed-text {
+    border-right: none;
+    display: inline-block;
+  }
+</style>

@@ -1,0 +1,45 @@
+---
+---
+
+<script is:inline>
+  const sections = ['inicio', 'sobremi', 'contacto'];
+  
+  function showSection(sectionId) {
+    sections.forEach(id => {
+      const section = document.getElementById(id);
+      const link = document.querySelector(`[data-section="${id}"]`);
+      
+      if (section) {
+        if (id === sectionId) {
+          section.classList.remove('translate-x-full', 'opacity-0', 'hidden');
+          section.classList.add('translate-x-0', 'opacity-100');
+          link?.classList.add('text-accent');
+        } else {
+          section.classList.add('translate-x-full', 'opacity-0');
+          setTimeout(() => section.classList.add('hidden'), 500);
+          link?.classList.remove('text-accent');
+        }
+      }
+    });
+  }
+
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    // Mostrar sección inicial
+    const initialSection = window.location.hash.substring(1) || 'inicio';
+    showSection(initialSection);
+
+    // Configurar navegación
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sectionId = link.getAttribute('href')?.substring(1);
+        if (sectionId) {
+          showSection(sectionId);
+          window.history.pushState({}, '', `#${sectionId}`);
+        }
+      });
+    });
+  });
+</script>
+</script>
