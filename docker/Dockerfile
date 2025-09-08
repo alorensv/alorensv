@@ -12,4 +12,4 @@ COPY . .
 EXPOSE 4321
 
 #RUN npm run build
-CMD ["npx", "astro", "dev", "--host", "0.0.0.0", "--port", "4321"]
+CMD ["npm","run","dev","--","--host","0.0.0.0","--port","4321"]

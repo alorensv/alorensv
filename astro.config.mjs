@@ -5,7 +5,10 @@ export default defineConfig({
   integrations: [tailwind()],
   server: {
     host: '0.0.0.0',
-    port: 4321
+    port: 4321,
+    watch: {
+      usePolling: true
+    }
   },
   output: 'static'
 });
