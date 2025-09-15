@@ -4,25 +4,15 @@ import MatrixRain from '../components/MatrixRain.astro';
 import Navigation from '../components/Navigation.astro';
 import Acercademi from '../components/Acercademi.astro';
 import Contacto from '../components/Contacto.astro';
-
+import Menu from '../components/Menu.astro';
 ---
 
 <Layout title="Alejandro Lorens">
-  <nav class="fixed top-0 w-full bg-primary/95 backdrop-blur-sm z-50 px-4 py-4 shadow-lg">
-    <div class="container mx-auto">
-      <div class="flex justify-center gap-6 md:gap-8">
-  <a href="#inicio" data-section="inicio" class="nav-link text-white hover:text-accent transition-colors text-sm md:text-base font-medium">Inicio</a>
-  <a href="#sobremi" data-section="sobremi" class="nav-link text-white hover:text-accent transition-colors text-sm md:text-base font-medium">Acerca de mí</a>
-  <a href="/mi-portafolio" target="_blank" class="nav-link text-white hover:text-accent transition-colors text-sm md:text-base font-medium">Portafolio</a>
-  <a href="#contacto" data-section="contacto" class="nav-link text-white hover:text-accent transition-colors text-sm md:text-base font-medium">Contacto</a>
-  
-      </div>
-    </div>
-  </nav>
+
   
   <main class="pt-10">
     <div class="relative min-h-[calc(100vh-2.5rem)]">
-      
+      <Menu />
       
       <!-- Inicio Section -->
       <section id="inicio" class="absolute inset-0 transition-all duration-500 ease-in-out transform overflow-y-auto min-h-screen pb-8">
@@ -105,7 +95,7 @@ import Contacto from '../components/Contacto.astro';
       </section>
 
       <!-- Contact Section -->
-      <section id="contacto" class="absolute inset-0 transition-all duration-500 ease-in-out transform translate-x-full opacity-0 hidden overflow-y-auto min-h-screen pb-8 bg-white">
+      <section id="contacto" class="absolute inset-0 transition-all duration-500 ease-in-out transform translate-x-full opacity-0 hidden overflow-y-auto min-h-screen pb-8">
         <Contacto />
       </section>
     </div>

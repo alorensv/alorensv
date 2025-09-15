@@ -2,11 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import MiPortafolioComponent from '../components/MiPortafolio.astro';
+import Menu from '../components/Menu.astro';
 const portfolioItems = [
   {
     title: 'Documentos legales con firma avanzada',
     description: 'Plataforma de redacción de documentos legales y firma avanzada',
-    image: '/img/firmalex2.png',
+    image: '/img/firmalex/banner.png',
     front: 'Laravel Blade',
     front2: 'Vue.js',
     back: 'Laravel',
@@ -31,7 +32,7 @@ const portfolioItems = [
   {
     title: 'holmanortiz.cl',
     description: 'Platorma Corredora de Propiedades',
-    image: 'https://via.placeholder.com/400x300/1a1a1a/00ff9d?text=E-learning',
+    image: '/img/tbl.png',
     front: 'Javascript',
     front2: 'Bootstrap',
     back: 'Yii 1.1',
@@ -40,7 +41,7 @@ const portfolioItems = [
   {
     title: 'tycautomotriz.cl',
     description: 'Aplicación de gestión inmobiliaria',
-    image: 'https://via.placeholder.com/400x300/1a1a1a/00ff9d?text=Real+Estate',
+    image: '/img/tbl.png',
     front: 'Javascript',
     front2: 'Bootstrap',
     back: 'Html5',
@@ -58,7 +59,7 @@ const portfolioItems = [
     {
     title: 'tycautomotriz.cl',
     description: 'Aplicación de gestión inmobiliaria',
-    image: 'https://via.placeholder.com/400x300/1a1a1a/00ff9d?text=Real+Estate',
+    image: '/img/tbl.png',
     front: 'Javascript',
     front2: 'Bootstrap',
     back: 'Html5',
@@ -76,6 +77,7 @@ const portfolioItems = [
 ];
 ---
 <Layout title="Mi Portafolio">
+  <Menu />
   <Navigation />
   <MiPortafolioComponent items={portfolioItems} />
 </Layout>

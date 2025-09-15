@@ -26,6 +26,7 @@
     "astro-navbar": "^2.3.9",
     "astro-seo": "^0.8.4",
     "resend": "^4.0.1",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "swiper": "^11.0.3"
   }
 }
