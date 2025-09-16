@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import MiPortafolioComponent from '../components/MiPortafolio.astro';
 import Menu from '../components/Menu.astro';
+import CustomCarousel from '../components/react/CustomCarousel';
+
 const portfolioItems = [
   {
     title: 'Documentos legales con firma avanzada',
@@ -80,4 +82,5 @@ const portfolioItems = [
   <Menu />
   <Navigation />
   <MiPortafolioComponent items={portfolioItems} />
+  <CustomCarousel client:load items={portfolioItems} />
 </Layout>
