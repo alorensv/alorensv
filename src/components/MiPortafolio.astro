@@ -7,6 +7,7 @@ interface Project {
   featured?: boolean;
   type?: string;
   image?: string;
+  imageM?: string;
   title?: string;
   description?: string;
   front?: string;
@@ -38,16 +39,22 @@ const getTechColor = (tech: string): string => {
 <div class="relative h-screen before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-t before:from-[#141414] before:to-transparent before:z-10">
   <div class="absolute inset-0">
     <img 
-      src={featuredProjects[0]?.image} 
+      src={featuredProjects[0]?.imageM}
+      class="md:hidden w-full h-full object-cover animate-[fadeIn_1s_ease-in]"
       alt={featuredProjects[0]?.title}
-      class="w-full h-full object-cover animate-[fadeIn_1s_ease-in]"
+      loading="eager"
+    />
+    <img 
+      src={featuredProjects[0]?.image}
+      class="hidden md:block w-full h-full object-cover animate-[fadeIn_1s_ease-in]"
+      alt={featuredProjects[0]?.title}
       loading="eager"
     />
   </div>
   <div class="absolute inset-0 flex items-end md:items-center justify-start p-8 z-20 min-h-full">
     <div class="absolute bottom-0 left-0 mx-auto ml-[4%] w-[50%] max-w-[800px] md:w-[50%] w-full md:ml-[4%] mb-12 md:mb-0 z-20 pb-8">
-      <h1 class="text-[2.5vw] font-bold text-white drop-shadow-lg mb-4 animate-[slideUp_0.8s_ease-out]">{featuredProjects[0]?.title}</h1>
-      <p class="text-[1.4vw] text-white/90 max-w-[50%] drop-shadow mb-6 animate-[slideUp_0.8s_ease-out_0.2s]">{featuredProjects[0]?.description}</p>
+      <h1 class="text-xl md:text-[2.5vw] font-bold text-white drop-shadow-lg mb-4 animate-[slideUp_0.8s_ease-out]">{featuredProjects[0]?.title}</h1>
+      <p class="text-base md:text-[1.4vw] text-white/90 w-full md:max-w-[50%] whitespace-normal break-words drop-shadow mb-6 animate-[slideUp_0.8s_ease-out_0.2s]">{featuredProjects[0]?.description}</p>
       <div class="flex gap-4 mb-6">
         {featuredProjects[0] && (
           <ModalCustom client:load project={featuredProjects[0]}>
