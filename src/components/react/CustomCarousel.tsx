@@ -44,7 +44,7 @@ const CustomCarousel: React.FC<Props> = ({ items }) => {
       containerClass="carousel-container py-4"
       itemClass="px-2"
     >
-      {items.map((item, idx) => (
+      {items.filter(item => item.principal === false).map((item, idx) => (
         <div
           key={idx}
           className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col h-full"
@@ -56,7 +56,7 @@ const CustomCarousel: React.FC<Props> = ({ items }) => {
             loading="lazy"
           />
           <div className="p-4 flex flex-col flex-grow">
-            <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
+            <h3 className="text-gray-600 font-semibold text-lg mb-1">{item.title}</h3>
             <p className="text-gray-600 text-sm flex-grow">{item.description}</p>
             <div className="flex flex-wrap gap-2 mt-3">
               {item.front && <span className="px-2 py-1 text-xs bg-accent/80 text-black rounded">{item.front}</span>}
