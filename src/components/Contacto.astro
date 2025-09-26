@@ -10,7 +10,7 @@
                 <h3 class="text-xl font-bold mb-4 text-accent">
                     Envíame un mensaje
                 </h3>
-                <form class="space-y-4">
+                <form id="contactForm" class="space-y-4">
                     <div>
                         <label
                             class="block text-sm font-medium mb-1"
@@ -51,10 +51,12 @@
                     </div>
                     <button
                         type="submit"
+                        id="submitBtn"
                         class="w-full bg-accent text-primary font-bold py-2 px-4 rounded-lg hover:bg-accent/80 transition-colors"
                     >
                         Enviar mensaje
                     </button>
+                    <div id="statusMessage" class="hidden p-3 rounded-lg text-center"></div>
                 </form>
             </div>
 
@@ -139,3 +141,64 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusMessage = document.getElementById('statusMessage');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Cambiar estado del botón
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+        statusMessage.classList.add('hidden');
+
+        // Obtener datos del formulario
+        const formData = new FormData(form);
+        const data = {
+            nombre: formData.get('nombre'),
+            email: formData.get('email'),
+            mensaje: formData.get('mensaje')
+        };
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                // Mostrar mensaje de éxito
+                statusMessage.textContent = result.message;
+                statusMessage.className = 'p-3 rounded-lg text-center bg-green-600 text-white';
+                statusMessage.classList.remove('hidden');
+                
+                // Limpiar formulario
+                form.reset();
+            } else {
+                // Mostrar mensaje de error
+                statusMessage.textContent = result.error || 'Error al enviar el mensaje';
+                statusMessage.className = 'p-3 rounded-lg text-center bg-red-600 text-white';
+                statusMessage.classList.remove('hidden');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            statusMessage.textContent = 'Error de conexión. Intenta nuevamente.';
+            statusMessage.className = 'p-3 rounded-lg text-center bg-red-600 text-white';
+            statusMessage.classList.remove('hidden');
+        } finally {
+            // Restaurar botón
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar mensaje';
+        }
+    });
+});
+</script>
